@@ -1,0 +1,199 @@
+📦 Complete Project Prompt — Website File Compression Tool (Huffman Coding)
+📌 Project Title
+
+Web-Based File Compression Tool using Huffman Coding
+
+🎯 Project Goal
+
+Build a fully functional web application where users can:
+
+Upload a text-based file (e.g., .txt, .html, .css, .js)
+
+Compress the uploaded file using Huffman Coding (DSA-based algorithm)
+
+Download the compressed file
+
+Decompress the compressed file back to the original content
+
+View compression statistics (original size vs compressed size)
+
+The project must demonstrate strong DSA concepts while also being usable as a real website.
+
+🧠 Core Algorithm (MANDATORY)
+Huffman Coding (Lossless Compression)
+
+The compression logic must be implemented manually, not using libraries.
+
+Why Huffman Coding:
+
+Greedy algorithm
+
+Uses Min Heap (Priority Queue)
+
+Uses Binary Tree
+
+Used in real-world compression (ZIP, PNG)
+
+Excellent DSA interview relevance
+
+🧩 Data Structures to Use
+Purpose	Data Structure
+Character frequency	Hash Map
+Pick least frequent chars	Min Heap (Priority Queue)
+Encode characters	Binary Tree
+Store Huffman codes	Map<char, string>
+🛠️ Tech Stack
+Frontend
+
+HTML
+
+CSS
+
+(Optional) Tailwind CSS
+
+Vanilla JavaScript or React (optional)
+
+Backend
+
+Node.js
+
+Express.js
+
+Core Compression Logic
+
+JavaScript implementation of Huffman Coding
+
+File Handling
+
+multer (file uploads)
+
+fs (file system operations)
+
+Compression Output
+
+.bin or .huff compressed file
+
+Metadata stored to allow decompression
+
+🌐 Website Functional Requirements
+1️⃣ Home Page
+
+Clean UI
+
+Upload file input
+
+Buttons:
+
+Compress File
+
+Decompress File
+
+Supported file types shown clearly
+
+2️⃣ File Upload
+
+User uploads a file from their system
+
+File is sent to backend using multipart/form-data
+
+Backend reads file content as text
+
+3️⃣ Compression Process (Backend)
+
+Backend must:
+
+Read file content
+
+Calculate character frequencies (HashMap)
+
+Build Min Heap from frequencies
+
+Construct Huffman Tree
+
+Generate Huffman codes using DFS
+
+Compress file content into binary string
+
+Save:
+
+Compressed data
+
+Huffman tree (or code map) for decompression
+
+Return compressed file for download
+
+4️⃣ Decompression Process
+
+Backend must:
+
+Read compressed file
+
+Load stored Huffman tree or codes
+
+Traverse tree using bit stream
+
+Reconstruct original text
+
+Return decompressed file for download
+
+5️⃣ Download Feature
+
+User can download:
+
+Compressed file
+
+Decompressed file
+
+Files must preserve original content exactly
+
+6️⃣ Compression Statistics (Displayed on UI)
+
+Show:
+
+Original file size
+
+Compressed file size
+
+Compression ratio (%)
+
+Time taken for compression
+
+🔁 High-Level Flow
+User uploads file
+        ↓
+Backend reads text
+        ↓
+Frequency map created
+        ↓
+Min Heap built
+        ↓
+Huffman Tree created
+        ↓
+Codes generated
+        ↓
+File compressed
+        ↓
+Compressed file downloadable
+
+📂 Suggested Folder Structure
+file-compressor/
+│
+├── server/
+│   ├── server.js
+│   ├── huffman/
+│   │   ├── HuffmanNode.js
+│   │   ├── buildTree.js
+│   │   ├── encode.js
+│   │   └── decode.js
+│   ├── routes/
+│   │   └── compress.js
+│   ├── uploads/
+│   ├── compressed/
+│   └── package.json
+│
+├── client/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+└── README.md
