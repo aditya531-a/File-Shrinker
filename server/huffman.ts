@@ -188,12 +188,13 @@ export class HuffmanCoder {
   
   // Helper to pack bits into bytes for real binary compression
   packBits(binaryString) {
-      const padding = 8 - (binaryString.length % 8);
-      const paddedBinary = binaryString + "0".repeat(padding % 8);
+      const remainder = binaryString.length % 8;
+      const padding = remainder === 0 ? 0 : 8 - remainder;
+      const paddedBinary = binaryString + "0".repeat(padding);
       const bytes = [];
       
       // Store padding info in first byte
-      bytes.push(padding % 8);
+      bytes.push(padding);
       
       for (let i = 0; i < paddedBinary.length; i += 8) {
           const byteStr = paddedBinary.substr(i, 8);
@@ -212,7 +213,7 @@ export class HuffmanCoder {
           binaryString += byteStr;
       }
       
-      if (padding > 0) {
+      if (padding > 0 && padding < 8) {
           binaryString = binaryString.slice(0, -padding);
       }
       

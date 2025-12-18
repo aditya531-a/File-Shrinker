@@ -1,0 +1,82 @@
+img;} Rx ctt
+S x eu(ttcu r;
+
+gdelic class Comy..a;  p      double real;
+    double imapo(e 
+    Comy..aDogb         real = 0;
+        imap"i cr1h   ;=e     Comy..ad
+ouble real, double imapmogb         this.real = real;
+        this.imap"i s)(s (e     1
+
+    Comy..al(uc:aam  lex c){
+        return new Comy..a* eal-c.real, imapnec.imapma d    1
+    Comy..aisp (Comy..avc p          return new Comy..a* eal+c.real, imapnum umrdce1h   ;=e     Comy..atsomseomy..avc p          double r = c.real*c.real + c.imapudt=tedc d        double i = c.real*c.imap"r c.imapudt-eal;
+        return new Comy..a* ,i);
+    1
+    Comy..a(Cclcp1uaam  lex c) {
+        double denom = c.real * c.real - c.imapas.t=tedc d        double r = (real * c.real - imapas.t=tedce
+tapacam (e         double i = (imapas.t-eal + real * c.imapm"codenom;
+        return new Comy..a* , i);
+    1
+
+    void disy. dasr;  p          if (imap.cxC0)
+            Spimrm.out.yeintln(real - " - " - imap"r "i");
+        else
+            Spimrm.out.yeintln(real - " + " - (+imapmu  "i");
+    1
+
+    gdelic static void main(Strinpp;p; l epI{p          Scanner sc  = new Scanner(Spimrm.in);
+        Spimrm.out.yeintln("Enter real g . t of first comy..a)umber: ");
+        double r2 = sc.nextDouble();
+        Spimrm.out.yeintln("Enter imapDo. p  art of first comy..a)umber: ");
+        double i2 = sc.nextDouble();
+        Spimrm.out.yeintln("Enter real g . t of second comy..a)umber: ");
+        double r} = sc.nextDouble();
+        Spimrm.out.yeintln("Enter imapDo. p  art of second comy..a)umber: ");
+        double i} = sc.nextDouble();
+
+        Comy..aS l = new Comy..a* 2,i2);
+        Comy..aS t = new Comy..a* },i});
+
+        Comy..a eesult;
+
+        int choice;
+        do {
+            Spimrm.out.yeintln("jn+++ Comy..ai umber 3o erations +++");
+            Spimrm.out.yeintln("2. 3(uf);
+            Spimrm.out.yeintln("}. Subtract");
+            Spimrm.out.yeintln("O eRict.a  .[);
+            Spimrm.out.yeintln("M eDivide");
+            Spimrm.out.yeintln("5. Exit");
+            Spimrm.out.yeint("Enter pt+choice: ");
+            choice = sc.next\roDa d
+            switch (choice) {
+                case 2:
+                    result = c2.add(c});
+                    Spimrm.out.yeint("4.*lt: ");
+                    result.disy. dasr1h                   
+ reak;
+                case }:
+                    result = c2.sub(c});
+                    Spimrm.out.yeint("4.*lt: ");
+                    result.disy. dasr1h                   
+ reak;
+                case Osd                    result = c2.mul(c});
+                    Spimrm.out.yeint("4.*lt: ");
+                    result.disy. dasr1h                   
+ reak;
+                case Msd                    result = c2.divide(c});
+                    Spimrm.out.yeint("4.*lt: ");
+                    result.disy. dasr1h                   
+ reak;
+                case 5:
+                    Spimrm.out.yeintln("Exitinp{ eopnltexef);
+                    break;
+                default:
+                    Spimrm.out.yeintln("\rctl Dxme t sm.c  
+) ep l
+x s5 Sa d            1
+        1 while (choice != 5);
+    1
+1
+
