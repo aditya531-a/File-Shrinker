@@ -1,0 +1,105 @@
+package javaGenerics;
+import java.util.*;
+
+class Counter<T> {
+    ArrayList<T> list = new ArrayList<>();
+
+    void addElement(T elem) {
+        list.add(elem);
+    }
+
+    void displayElements() {
+        System.out.println("Elements: " + list);
+    }
+
+    int countEven() {
+        int count = 0;
+        for (T x : list)
+            if (x instanceof Integer && (Integer) x % 2 == 0)
+                count++;
+        return count;
+    }
+
+    int countOdd() {
+        int count = 0;
+        for (T x : list)
+            if (x instanceof Integer && (Integer) x % 2 != 0)
+                count++;
+        return count;
+    }
+
+    int countPrime() {
+        int count = 0;
+        for (T x : list)
+            if (x instanceof Integer) {
+                int n = (Integer) x;
+                if (n > 1) {
+                    boolean prime = true;
+                    for (int i = 2; i <= Math.sqrt(n); i++)
+                        if (n % i == 0)
+                            prime = false;
+                    if (prime)
+                        count++;
+                }
+            }
+        return count;
+    }
+
+    int countPalindrome() {
+        int count = 0;
+        for (T x : list) {
+            String s = x.toString();
+            String rev = new StringBuilder(s).reverse().toString();
+            if (s.equals(rev))
+                count++;
+        }
+        return count;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Choose Data Type:");
+        System.out.println("1. Integer");
+        System.out.println("2. String");
+        System.out.print("Enter choice: ");
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                Counter<Integer> intCounter = new Counter<>();
+                System.out.print("Enter number of elements: ");
+                int n1 = sc.nextInt();
+                for (int i = 0; i < n1; i++) {
+                    System.out.print("Enter element " + (i + 1) + ": ");
+                    intCounter.addElement(sc.nextInt());
+                }
+                intCounter.displayElements();
+                System.out.println("Even Count: " + intCounter.countEven());
+                System.out.println("Odd Count: " + intCounter.countOdd());
+                System.out.println("Prime Count: " + intCounter.countPrime());
+                System.out.println("Palindrome Count: " + intCounter.countPalindrome());
+                break;
+
+            case 2:
+                Counter<String> strCounter = new Counter<>();
+                System.out.print("Enter number of elements: ");
+                int n2 = sc.nextInt();
+                sc.nextLine();
+                for (int i = 0; i < n2; i++) {
+                    System.out.print("Enter element " + (i + 1) + ": ");
+                    strCounter.addElement(sc.nextLine());
+                }
+                strCounter.displayElements();
+                System.out.println("Palindrome Count: " + strCounter.countPalindrome());
+                break;
+
+            default:
+                System.out.println("Invalid choice!");
+        }
+
+        sc.close();
+    }
+}

@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+public class Complex {
+    double real;
+    double imag;
+
+    Complex(){
+        real = 0;
+        imag = 0;
+    }
+    Complex(double real, double imag){
+        this.real = real;
+        this.imag = imag;
+    }
+
+    Complex add(Complex c){
+        return new Complex(real+c.real, imag+c.imag);
+    }
+    Complex sub(Complex c){
+        return new Complex(real-c.real, imag-c.imag);
+    }
+    Complex mul(Complex c){
+        double r = c.real*c.real - c.imag*c.imag;
+        double i = c.real*c.imag + c.imag*c.real;
+        return new Complex(r,i);
+    }
+    Complex divide(Complex c) {
+        double denom = c.real * c.real + c.imag * c.imag;
+        double r = (real * c.real + imag * c.imag) / denom;
+        double i = (imag * c.real - real * c.imag) / denom;
+        return new Complex(r, i);
+    }
+
+    void display() {
+        if (imag >= 0)
+            System.out.println(real + " + " + imag + "i");
+        else
+            System.out.println(real + " - " + (-imag) + "i");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc  = new Scanner(System.in);
+        System.out.println("Enter real part of first complex number: ");
+        double r1 = sc.nextDouble();
+        System.out.println("Enter imaginary part of first complex number: ");
+        double i1 = sc.nextDouble();
+        System.out.println("Enter real part of second complex number: ");
+        double r2 = sc.nextDouble();
+        System.out.println("Enter imaginary part of second complex number: ");
+        double i2 = sc.nextDouble();
+
+        Complex c1 = new Complex(r1,i1);
+        Complex c2 = new Complex(r2,i2);
+
+        Complex result;
+
+        int choice;
+        do {
+            System.out.println("\n--- Complex Number Operations ---");
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Multiply");
+            System.out.println("4. Divide");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    result = c1.add(c2);
+                    System.out.print("Result: ");
+                    result.display();
+                    break;
+                case 2:
+                    result = c1.sub(c2);
+                    System.out.print("Result: ");
+                    result.display();
+                    break;
+                case 3:
+                    result = c1.mul(c2);
+                    System.out.print("Result: ");
+                    result.display();
+                    break;
+                case 4:
+                    result = c1.divide(c2);
+                    System.out.print("Result: ");
+                    result.display();
+                    break;
+                case 5:
+                    System.out.println("Exiting program...");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        } while (choice != 5);
+    }
+}

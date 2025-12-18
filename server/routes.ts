@@ -65,13 +65,17 @@ export async function registerRoutes(
       };
 
       // Store in DB (optional but good for history)
-      await storage.createFileRecord({
-        originalName: req.file.originalname,
-        mimeType: req.file.mimetype,
-        originalSize: req.file.size,
-        compressedSize: finalBuffer.length,
-        compressionRatio: stats.compressionRatio,
-      });
+      try {
+        await storage.createFileRecord({
+          originalName: req.file.originalname,
+          mimeType: req.file.mimetype,
+          originalSize: req.file.size,
+          compressedSize: finalBuffer.length,
+          compressionRatio: stats.compressionRatio,
+        });
+      } catch (dbErr) {
+        console.warn("DB record creation failed, continuing anyway:", dbErr);
+      }
 
       res.json(stats);
     } catch (err) {
